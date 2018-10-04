@@ -1,0 +1,83 @@
+@import '../../index.less';
+.userbanner {
+    height: 148px;
+    background: url('../../assets/userBg.jpg') no-repeat center top;
+}
+
+.header {
+    background: #ffffff
+}
+
+.userImage {
+    img {
+        width: 134px;
+        height: 134px;
+        border: 3px solid #ffffff;
+        border-radius: 70px;
+        display: block;
+        margin: -70px auto 0px auto;
+    }
+}
+
+.userName {
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    height: 30px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.tab {
+    height: 40px;
+    background: #ffffff;
+    padding-top: 60px;
+    text-align: center;
+    box-sizing: content-box;
+    padding-bottom: 10px;
+    a {
+        display: inline-block;
+        padding: 0px 4px;
+        margin: 3px 30px;
+        height: 34px;
+        position: relative;
+        &.cur {
+            color: @theme-color;
+            &::before {
+                content: '';
+                height: 1px;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0px;
+                background: @theme-color;
+            }
+        }
+    }
+}
+
+.list {
+    position: relative;
+    min-height: 80px;
+    padding: 20px 0px;
+    box-sizing: content-box;
+    width: 1100px;
+    margin: 40px auto
+}
+.listCourse{
+    background: #ffffff;
+    padding: 0px 10px;
+}
+.listProject{
+    width: 1125px;
+    overflow: hidden;
+}
+
+.nothing {
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+.userForm{
+    padding: 30px 60px !important;
+}

@@ -1,0 +1,38 @@
+.breadcrumb {
+    height: 20px;
+    line-height: 20px;
+    padding: 18px 30px;
+    box-sizing: content-box;
+    color: #ffffff;
+    font-size: 13px;
+    span,a,b{
+        display: inline-block;
+        vertical-align: top;
+    }
+    .breadcrumbContent {
+        background: url('../../assets/Breadcrumb-icon.png') no-repeat left 1px;
+        padding-left: 25px;
+        a {
+            font-size: 13px;
+            color: #ffffff;
+            &:hover {
+                text-decoration: underline
+            }
+            line-height: 20px; 
+        }
+        b {
+            font-weight: 500;
+            margin: 0px 6px;
+            line-height: 16px;
+        }
+    }
+    &.black {
+        color: #333333;
+        .breadcrumbContent {
+            background: url('../../assets/breadcrumb-black-icon.png') no-repeat left 1px;
+            a {
+                color: #333333;
+            }
+        }
+    }
+}

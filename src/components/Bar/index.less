@@ -1,0 +1,38 @@
+@import "../../index.less";
+.barTitle {
+    color: @font-color;
+    font-size: @font-nav-size;
+    width: 140px;
+    line-height: 48px;
+    text-align: center;
+    border-right: 1px solid #e5e5e5;
+}
+
+.bar {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    line-height: 50px;
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+}
+
+.barItem {
+    padding: 0px 30px;
+    height: 50px;
+    line-height: 50px;
+    color: @font-color;
+    font-size: @font-nav-size;
+    cursor: pointer;
+    &.itemCur {
+        background: @theme-color;
+        color: #ffffff;
+        &:hover {
+            color: #ffffff;
+        }
+    }
+    &:hover {
+        color: @theme-color;
+    }
+}

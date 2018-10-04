@@ -1,0 +1,71 @@
+.coursesItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 0.6rem 0.6rem;
+    >.image {
+        width: 10rem;
+        height: 7.5rem;
+        display: block;
+    }
+    >.coursesinfo {
+        flex: 1;
+        margin-left: 0.6rem;
+        white-space: normal;
+        overflow: hidden;
+        .title {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.4rem;
+            height: 1.4rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .detail {
+            font-size: 0.8rem;
+            color: #666666;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: 1.2rem;
+            height: 1.2rem;
+            margin-top: 0.3rem;
+        }
+        .count {
+            font-size: 0.6rem;
+            line-height: 1rem;
+            height: 1rem;
+            margin-top: 0.6rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            span {
+                font-size: 0.8rem;
+                color: #ff7373;
+                margin-right: 0.1rem
+            }
+            b {
+                display: inline-block;
+                line-height: 0.8rem;
+                height: 0.8rem;
+                margin: 0.1rem 0.3rem;
+                border-left: 1px solid #666666;
+                vertical-align: top;
+            }
+        }
+        .buy {
+            margin-top: 0.6rem;
+            width: 5rem;
+            height: 1.8rem;
+            background: #ff7373;
+            color: #fff;
+            display: block;
+            line-height: 1.8rem;
+            text-align: center;
+            border-radius: 0.1rem;
+            font-size: 0.8rem;
+        }
+    }
+}

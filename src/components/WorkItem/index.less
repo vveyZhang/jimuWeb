@@ -1,0 +1,84 @@
+@import '../../index.less';
+.workItem {
+    width: 350px;
+    background: #ffffff;
+    border-radius: 3px;
+    overflow: hidden;
+    float: left;
+    margin-right: 25px;
+    transition: all 0.3s;
+    cursor: pointer;
+    margin-bottom: 30px; 
+    &:hover {
+        box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.05);
+    }
+    .image {
+        overflow: hidden;
+        img {
+            display: block;
+            width: 350px;
+            height: 200px;
+            transition: all 0.3s;
+            &:hover {
+                transform: scale3d(1.02, 1.02, 1)
+            }
+        }
+    }
+    .content {
+        padding: 12px 20px;
+        .title {
+            font-size: 14px;
+            color: @font-color;
+            line-height: 26px;
+            height: 26px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .tools {
+            height: 20px;
+            line-height: 20px;
+            color: #999999;
+            font-size: 12px;
+            margin-top: 8px;
+            span {
+                display: inline-block;
+                height: 20px;
+                padding-left: 24px;
+                margin-right: 20px;
+            }
+            .view {
+                background: url('../../assets/view-icon.png') no-repeat left center;
+            }
+            .skr {
+                background: url(../../assets//skr-icon.png) no-repeat left 4px;
+            }
+        }
+    }
+    .footer {
+        border-top: 1px solid #efefef;
+        height: 45px;
+        padding: 0px 20px;
+        line-height: 45px;
+        .image {
+            height: 24px;
+            width: 24px;
+            border: 1px solid #ffffff;
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, .02);
+            border-radius: 12px;
+            overflow: hidden;
+            float: left;
+            margin: 10px 12px 10px 0px;
+        }
+        .name{
+          font-size: 13px;
+          color: #999999;
+          float: left;
+        }
+        .time{
+          float: right;
+          font-size: 12px;
+          color: #999999;
+        }
+    }
+}

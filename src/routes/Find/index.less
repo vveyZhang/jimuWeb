@@ -1,0 +1,139 @@
+.find {
+    margin-top: 50px;
+}
+
+.findList {
+    margin-top: 40px;
+    padding-bottom: 60px;
+    width: 1125px;
+    position: relative;
+    min-height: 200px;
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+.workDetailContent {
+    background: #ffffff;
+    .workHeader {
+        padding: 30px 30px 20px 30px;
+        overflow: hidden;
+        border-bottom: 1px solid #eaeaea;
+        .title {
+            height: 40px;
+            line-height: 40px;
+            color: #333333;
+            font-size: 24px;
+            font-weight: 500;
+        }
+        .workRow {
+            height: 26px;
+            line-height: 26px;
+            font-size: 13px;
+            margin-top: 10px;
+            color: #999999;
+            span {
+                line-height: 26px;
+                line-height: 26px;
+                display: inline-block;
+            }
+            .userName {
+                margin-left: 8px;
+                vertical-align: top;
+            }
+            .view {
+                background: url("../../assets/view-icon.png") no-repeat left center;
+                padding-left: 22px;
+                margin: 0px 34px;
+            }
+        }
+        .userImage {
+            height: 25px;
+            width: 25px;
+            box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.02);
+            border-radius: 12.5px;
+            border: 1px solid #ffffff;
+            vertical-align: top;
+            overflow: hidden;
+        }
+    }
+}
+
+.workDetailWrap {
+    padding: 30px 24px;
+    background: #ffffff;
+    overflow: hidden;
+    .projectWrap {
+        float: left;
+    }
+    .projectInfo {
+        width: 410px;
+        float: right;
+    }
+}
+
+.projectInfo {
+    .title {
+        font-size: 18px;
+        color: #333333;
+        line-height: 36px;
+        min-height: 36px;
+    }
+    .content {
+        font-size: 14px;
+        color: #666666;
+        line-height: 20px;
+        margin-top: 6px;
+    }
+    .projectText {
+        border-bottom: 1px solid #eaeaea;
+        padding-bottom: 12px;
+        margin-top: 12px;
+        .content {
+            min-height: 100px;
+        }
+    }
+}
+
+.projectSetting {
+    margin-top: 36px;
+    .content {
+        min-height: 163px;
+        overflow: hidden;
+    }
+}
+
+.btnContainer {
+    margin-top: 22px;
+    height: 50px;
+    .btn {
+        width: 180px;
+        height: 50px;
+        border-radius: 4px;
+        line-height: 50px;
+        text-align: center;
+        color: #ffffff;
+        background: #ffa63d;
+        float: left;
+        margin-right: 12px;
+        &:hover {
+            background: #ff7373;
+        }
+    }
+}
+
+.commentContainer {
+    padding: 30px;
+}
+
+.commentList {
+    padding: 40px;
+    overflow: hidden;
+    background: #ffffff;
+    margin-top: 30px;
+    position: relative;
+    min-height: 60px;
+    box-sizing: content-box
+}

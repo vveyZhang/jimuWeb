@@ -1,0 +1,82 @@
+@import "../../index.less";
+.courseItem {
+    padding: 45px 50px;
+    background: #ffffff;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+    cursor: pointer;
+    height: 300px;
+    box-sizing: content-box;
+    margin-bottom: 40px;
+    &:hover {
+        transform: translate3d(0, -2px, 2px);
+        box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.05);
+    }
+    .courseImage {
+        border-radius: 14px;
+        overflow: hidden;
+        float: left;
+        img {
+            display: block;
+            width: 400px;
+            height: 300px;
+        }
+    }
+    .courseContent {
+        float: right;
+        width: 550px;
+        .title {
+            font-size: 22px;
+            color: @theme-color;
+            line-height: 44px;
+            height: 44px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-top: 6px;
+        }
+        .content {
+            font-size: 13px;
+            line-height: 20px;
+            color: #666666;
+            font-size: 13px;
+            margin-top: 10px;
+            height: 60px;
+            overflow: hidden;
+        }
+        .footer {
+            border-top: 1px solid #e5e5e5;
+            margin-top: 35px;
+            .info {
+                line-height: 76px;
+                height: 76px;
+                font-size: 15px;
+                color: #666666;
+                span {
+                    color: @red;
+                    font-size: 24px;
+                    margin-right: 4px;
+                }
+                b {
+                    display: inline-block;
+                    width: 1px;
+                    height: 20px;
+                    background: #e5e5e5;
+                    vertical-align: -3px;
+                    margin: 0px 25px;
+                }
+            }
+            .button {
+                width: 180px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                color: #ffffff;
+                font-size: @font-nav-size;
+                display: block;
+                background: @red;
+                border-radius: 3px;
+            }
+        }
+    }
+}

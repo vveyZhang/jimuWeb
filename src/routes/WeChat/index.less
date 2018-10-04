@@ -1,0 +1,151 @@
+.banner {
+    width: 100%;
+    display: block;
+}
+
+.courseList {
+    padding: 0rem 0;
+    min-height: 10vh;
+    position: relative;
+}
+
+.buyCourse {
+    padding-bottom: 4rem;
+    .courseImage {
+        display: block;
+        width: 100%;
+    }
+    .courseInfo {
+        margin-top: 1rem;
+        padding: 0.4rem 0.6rem;
+        background-color: #ffffff;
+    }
+    .courseName {
+        line-height: 1.4rem;
+        font-size: 1rem;
+        font-weight: normal;
+        min-height: 1rem;
+    }
+    .courseDetail {
+        line-height: 1.2rem;
+        font-size: 0.8rem;
+        color: #666666;
+        margin-top: 0.1rem;
+    }
+    .courseCount {
+        margin-bottom: 0.4rem;
+        font-size: 0.8rem;
+        line-height: 1rem;
+        height: 1rem;
+        margin-top: 0.6rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        span {
+            font-size: 1rem;
+            color: #ff7373;
+            margin-right: 0.1rem
+        }
+        b {
+            display: inline-block;
+            line-height: 0.8rem;
+            height: 0.8rem;
+            margin: 0.1rem 0.4rem;
+            border-left: 1px solid #999999;
+            vertical-align: top;
+        }
+    }
+    .footer {
+        height: 3rem;
+        width: 100%;
+        background-color: #ffffff;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+        .button {
+            width: 6.4rem;
+            text-align: center;
+            line-height: 3rem;
+            background: #ff7373;
+            color: #ffffff;
+            float: right;
+        }
+    }
+}
+
+.orderContainer {
+    .orderCourse {
+        display: flex;
+        justify-content: space-between;
+        background-color: #fff;
+        padding: 0.6rem 0.6rem;
+        >.image {
+            width: 10rem;
+            height: 7.5rem;
+            display: block;
+        }
+        .courseInfo {
+            margin-left: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .title {
+                line-height: 1.4rem;
+                font-size: 1rem;
+                font-weight: normal;
+                min-height: 1rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 100%;
+            }
+            .price {
+                line-height: 1.4rem;
+                font-size: 0.8rem;
+                font-weight: normal;
+                height: 1rem;
+                overflow: hidden;
+                margin-top: 0.4rem;
+                color: #ff7373
+            }
+        }
+    }
+    .textWrap {
+        margin: 1rem 0;
+        padding: 1rem;
+        background-color: #ffffff;
+        height: 2rem;
+        line-height: 2rem;
+        display: flex;
+        justify-content: space-between;
+        .input {
+            flex: 1;
+            height: 2rem;
+            line-height: 2rem;
+            font-size: 1rem;
+            background: #efefef;
+            padding: 0 0.8rem;
+            margin-left: 0.4rem;
+            font-family: "微软雅黑"
+        }
+    }
+    .footer {
+        height: 3rem;
+        width: 100%;
+        background-color: #ffffff;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+        .button {
+            width: 6.4rem;
+            text-align: center;
+            line-height: 3rem;
+            background: #ff7373;
+            color: #ffffff;
+            float: right;
+        }
+    }
+}

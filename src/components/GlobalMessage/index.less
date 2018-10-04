@@ -1,0 +1,112 @@
+@import '../../index.less';
+.wrap {
+    width: 360px;
+    height: 500px;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    position: fixed;
+    top: 100px;
+    right: 60px;
+    z-index: 100;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1)
+}
+
+.messageWrap {
+    height: 330px;
+    overflow: hidden;
+    border: 1px solid #ededed;
+}
+
+.messageWrapContianer {
+    padding: 25px 0px;
+    height: 330px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.inputWrap {
+    margin-top: 20px;
+    .input {
+        width: 100%;
+        resize: none;
+        border: 1px solid #ededed;
+        padding: 10px 12px;
+        line-height: 20px;
+        font-size: 12px;
+        height: 80px;
+    }
+    .btn {
+        color: #ffffff;
+        background: @red;
+        text-align: center;
+        line-height: 40px;
+        height: 40px;
+        width: 130px;
+        border-radius: 6px;
+        margin-top: 10px;
+    }
+}
+
+.messageItem {
+    margin: 10px 24px;
+    display: flex;
+    flex-direction: 'row';
+    justify-content: flex-start;
+    align-items: flex-start;
+    .userName {
+        font-size: 12px;
+        line-height: 20px;
+        color: #666666;
+        height: 40px;
+        border-radius: 40px;
+        text-align: center;
+        line-height: 24px;
+        width: 40px;
+        padding: 8px;
+        overflow: hidden;
+        color: #ffffff;
+        background: @red;
+        margin-right: 16px;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+    }
+    .messageContent {
+        align-self: center;
+        &::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-bottom: 4px solid transparent;
+            border-top: 4px solid transparent;
+            border-right: 6px solid @theme-color;
+            position: absolute;
+            right: 100%;
+            top: 3px;
+        }
+        position: relative;
+        background: @theme-color;
+        color: #ffffff;
+        padding: 10px;
+        line-height: 20px;
+        font-size: 13px;
+        border-radius: 3px;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.05);
+        min-height: 20px;
+        max-width: 150px;
+    }
+    &.messageItemRight {
+        justify-content: flex-end;
+        .userName {
+            margin-right: 0px;
+            margin-left: 16px;
+        }
+        .messageContent {
+            &::before {
+                border-bottom: 4px solid transparent;
+                border-top: 4px solid transparent;
+                border-left: 6px solid @theme-color;
+                border-right: 0;
+                left: 100%;
+            }
+        }
+    }
+}
