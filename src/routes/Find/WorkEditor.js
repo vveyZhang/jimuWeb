@@ -13,7 +13,12 @@ import { connect } from 'dva';
 class WorkDetail extends Component {
   constructor(props) {
     super(props);
-    this.fetchProject(props.match.params.id)
+    this.fetchProject(props.match.params.id);
+    this.state = {
+      project_title: '',
+      project_desc: '',
+      project_opera_instruction: ''
+    }
   }
   fetchProject = (id) => {
     const { dispatch } = this.props;
@@ -43,8 +48,26 @@ class WorkDetail extends Component {
       }
     })
   }
+  handlePush = () => {
+    const { project_title, project_desc, project_opera_instruction } = this.state;
+    const { project, dispatch } = this.props;
+    dispatch({
+      type: 'project/pushProject', params: {
+        project_opera_instruction,
+        project_title,
+        project_desc,
+        projectid: project.id
+      }
+    })
+
+  }
+  handleChange = (value, key) => {
+    this.setState({
+      [key]: value
+    })
+  }
   render() {
-    const { project, commentsList, user, commentsLoding } = this.props;
+    const { project } = this.props;
     const pathMap = [
       {
         path: "/course",
@@ -54,6 +77,7 @@ class WorkDetail extends Component {
         name: project.project_title
       }
     ];
+    const { project_title, project_desc, project_opera_instruction } = this.state;
     return (
       <div>
         <div className="container">
@@ -64,21 +88,22 @@ class WorkDetail extends Component {
                 <Scratch imgSrc={project.project_image} url={project.project_file} />
               </div>
               <div className={styles.projectInfo}>
-                <div className={styles.projectText} >
+                <div className={styles.editorText} >
                   <h1 className={styles.title} >作品名称：</h1>
-                  <div className={styles.content} ><input /></div>
+                  <input onChange={(e) => this.handleChange(e.target.value, 'project_title')} value={project_title} className={styles.titleInput} placeholder="输入作品名" />
                 </div>
                 <div className={styles.projectText} >
                   <h1 className={styles.title} >作品介绍：</h1>
-                  <div className={styles.content} ><textarea></textarea></div>
+                  <textarea onChange={(e) => this.handleChange(e.target.value, 'project_desc')} value={project_desc} placeholder='输入作品介绍' className={styles.settingInput}></textarea>
                 </div>
-                <div className={styles.projectSetting} >
+                <div className={styles.editorSetting} >
                   <h1 className={styles.title} >操作介绍：</h1>
-                  <div className={styles.content} >
-                    <textarea></textarea>
-                  </div>
+                  <textarea onChange={(e) => this.handleChange(e.target.value, 'project_opera_instruction')} value={project_opera_instruction} placeholder='输入操作介绍' className={styles.settingInput} ></textarea>
                 </div>
-                <p className={styles.btn}  >发布</p>
+                <div className={styles.btnContainer} >
+                  <p className={styles.btn} onClick={() => this.handlePush()}  >发布</p>
+                </div>
+
               </div>
             </div>
           </div>

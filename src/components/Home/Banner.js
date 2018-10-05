@@ -5,7 +5,6 @@ import { Link } from 'dva/router'
 import styles from "./index.less";
 class HomeBanner extends Component {
   render() {
-    console.log(this.props)
     const { loading, user } = this.props;
     return (
       <div className={styles.banner}>

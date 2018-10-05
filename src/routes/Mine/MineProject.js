@@ -4,7 +4,6 @@ import { connect } from 'dva';
 import styles from './index.less'
 import Loading from '../../components/Loading'
 import WorkItem from '../../components/WorkItem'
-console.log(connect, routerRedux)
 @connect(({ user, global, loading }) => ({
     userProject: user.userProject,
     user: global.user,
@@ -20,7 +19,6 @@ export default class MineProject extends Component {
     }
     render() {
         const { userProject, loading } = this.props;
-        console.log(userProject)
         return (
             <div >
                 <div className={styles.tab} >

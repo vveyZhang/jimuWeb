@@ -8,6 +8,7 @@ import classNames from 'classnames'
 import icon from "../../assets/play-smal-icon.png";
 import "react-html5video/dist/styles.css";
 import styles from "./index.less";
+import GlobalMessage from '../../components/GlobalMessage'
 @connect(({ course, loading, global }) => ({
   courseVideo: course.courseVideo,
   courseDetail: course.courseDetail,
@@ -48,6 +49,7 @@ class CourseVideo extends Component {
     ];
     return (
       <div className={styles.courseVideo}>
+      <GlobalMessage />
         <div className="container">
           <Breadcrumb breadcrumbMap={pathMap} />
           <h1 className={styles.courseTitle}>{courseVideo.belong_course_title}</h1>
@@ -63,7 +65,9 @@ class CourseVideo extends Component {
               />
             </Video>
           </div>
-          <InnerBar title="课程章节" />
+          {
+            // <InnerBar title="课程章节" id={courseVideo.project_template}  />
+          }
           <div className={styles.courseListVideo}>
             <div className={styles.introduce}>
               {courseVideo.belong_course_courseinfo}<br />

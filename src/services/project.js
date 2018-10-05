@@ -6,3 +6,7 @@ export function queryAllProject() {
 export function queryProject(id) {
   return request(`/api/getProjectDetail/${id}`)
 }
+
+export function pushProject(params) {
+  return request(`/api/editProjectContent`, params, { method: 'POST' })
+}

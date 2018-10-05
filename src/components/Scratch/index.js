@@ -66,7 +66,6 @@ export default class Scratch extends Component {
     // Lots of global variables to make debugging easier
     // Instantiate the this.vm.
     this.vm = new VM()
-    console.log(this.vm)
     this.vm.setTurboMode(true);
     const storage = new window.ScratchStorage(); /* global ScratchStorage */
     const AssetType = storage.AssetType;
@@ -82,7 +81,6 @@ export default class Scratch extends Component {
     this.vm.attachV2SVGAdapter(new window.ScratchSVGRenderer.SVGRenderer());
     this.vm.attachV2BitmapAdapter(new window.ScratchSVGRenderer.BitmapAdapter());
     loadProjectUrl(this.props.url).then(arrarBuffer => {
-      console.log(arrarBuffer)
       this.vm.loadProject(arrarBuffer)
       this.vm.start();
     });

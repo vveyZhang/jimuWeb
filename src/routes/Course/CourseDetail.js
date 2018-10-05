@@ -1,4 +1,4 @@
-import  { Component } from "react";
+import { Component } from "react";
 import styles from "./index.less";
 import classNames from "classnames";
 import Breadcrumb from "../../components/Breadcrumb/index";
@@ -7,7 +7,7 @@ import { Link } from "dva/router";
 import { connect } from 'dva'
 import icon from "../../assets/play-smal-icon.png";
 import reportedIcon from '../../assets/reported-icon.png';
-import GlobalMessage from '../../components/GlobalMessage'
+
 function courseStatus(id, course) {
   let status = false;
   for (let item of course) {
@@ -38,7 +38,6 @@ class CourseDetail extends Component {
     if (user.id) {
       dispatch({ type: "course/queryCourseUser", courseid: id, userid: user.id });
     }
-
   }
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id != this.props.match.params.id) {
@@ -58,11 +57,9 @@ class CourseDetail extends Component {
         name: courseInfo.coursename
       }
     ];
-    console.log(courseDetail)
     return (
       <div className={styles.courseDetail}>
         <div className="container">
-          <GlobalMessage />
           <Breadcrumb breadcrumbMap={pathMap} />
           <div className={styles.courseHeader}>
             <div className={styles.left}>
@@ -82,7 +79,7 @@ class CourseDetail extends Component {
               <div className={styles.button}>开始学习 </div>
             </div>
           </div>
-          <InnerBar title="课程章节" />
+          <InnerBar title="课程章节" id={courseInfo.project_template} />
           <div className={styles.courseContent}>
             <div className={styles.left}>
               <div className={styles.introduce}>

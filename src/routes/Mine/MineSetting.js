@@ -30,7 +30,6 @@ export default class MineSetting extends Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         const { user, loading } = this.props;
-        console.log(user)
         const formItemLayout = {
             labelCol: {
                 xs: { span: 24 },

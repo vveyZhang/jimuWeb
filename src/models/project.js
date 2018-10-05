@@ -1,4 +1,5 @@
-import { queryAllProject, queryProject } from '../services/project'
+import { queryAllProject, queryProject, pushProject } from '../services/project';
+import { message } from 'antd'
 export default {
     namespace: 'project',
     state: {
@@ -25,6 +26,11 @@ export default {
                     projectDetail: data.data
                 }
             })
+        },
+        *pushProject({ params }, { call }) {
+            const data = yield call(pushProject, params);
+            if (!data.status) return;
+            message.success('编辑成功')
         }
     },
 

@@ -25,6 +25,7 @@ export default {
               'http://www.jimubiancheng.com' + his.pathname + his.search +
               '&response_type=code&scope=snsapi_userinfo&state=123456789012#wechat_redirect';
           }
+          return 
         };
         try {
           let userInfo = localStorage.getItem('user');

@@ -25,7 +25,6 @@ export default class CommentsInput extends Component {
     handlerComment = () => {
         const { isClick, comments } = this.state;
         if (!isClick) return;
-        console.log(comments)
         this.props.onInput(comments)
     }
     render() {

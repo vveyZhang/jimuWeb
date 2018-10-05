@@ -7,7 +7,6 @@ export default function loadProject(url) {
         oReq.onload = function (res) {
             if (res.target.status >= 200 && res.target.status < 300) {
                 const arrayBuffer = oReq.response;
-                console.log(arrayBuffer)
                 resolve(arrayBuffer)
             } else {
                 reject({

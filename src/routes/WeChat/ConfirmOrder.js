@@ -39,10 +39,8 @@ export default class ConfirmOrder extends Component {
 
     @Debounce(300)
     onPay() {
-        console.log(this.props)
         const { courseInfo, userInfo, dispatch } = this.props;
         // const { text } = this.state;
-        console.log(courseInfo)
         dispatch({
             type: 'user/userPay', params: {
                 price: parseInt(courseInfo.price * 100),

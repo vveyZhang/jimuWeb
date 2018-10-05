@@ -20,7 +20,7 @@ const menu = [
   },
   {
     name: "创作",
-    path: "/ss"
+    path: "/scratch"
   }
 ];
 class Header extends Component {

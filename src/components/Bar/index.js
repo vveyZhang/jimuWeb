@@ -18,7 +18,6 @@ class Bar extends Component {
   render() {
     const { name, tab } = this.props;
     const { current } = this.state;
-    console.log(current);
     return (
       <div className={styles.bar}>
         <div className={styles.barTitle}>{name}</div>

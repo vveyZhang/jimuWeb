@@ -45,7 +45,6 @@ class Layouts extends Component {
   getPage() {
     const { routerData, location } = this.props;
     const { pathname, search } = location;
-    console.log(location)
     let title = "积木编程";
     let currRouterData = null;
     let path = "/";
