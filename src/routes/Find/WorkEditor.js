@@ -65,32 +65,22 @@ class WorkDetail extends Component {
               </div>
               <div className={styles.projectInfo}>
                 <div className={styles.projectText} >
+                  <h1 className={styles.title} >作品名称：</h1>
+                  <div className={styles.content} ><input /></div>
+                </div>
+                <div className={styles.projectText} >
                   <h1 className={styles.title} >作品介绍：</h1>
-                  <div className={styles.content} >{project.project_desc}</div>
+                  <div className={styles.content} ><textarea></textarea></div>
                 </div>
                 <div className={styles.projectSetting} >
                   <h1 className={styles.title} >操作介绍：</h1>
-                  <div className={styles.content} >{project.project_opera_instruction}</div>
+                  <div className={styles.content} >
+                    <textarea></textarea>
+                  </div>
                 </div>
-                <div className={styles.btnContainer} >
-                  {
-                    user.id == project.userid ?
-                      <Link to={`/scratch/proid=${project.id}`} className={styles.btn}  >去修改</Link>
-                      : null
-                  }
-                </div>
+                <p className={styles.btn}  >发布</p>
               </div>
             </div>
-            <div className={styles.commentContainer} >
-              <CommentsInput login={user.status} onInput={this.handleComment} />
-            </div>
-          </div>
-          <div className={styles.commentList} >
-            <Loading loading={commentsLoding} />
-            {
-              commentsList.map((comments, index) => <Comments handleComment={this.handleComment} login={user.status} {...comments} key={index} />)
-            }
-
           </div>
         </div>
       </div>

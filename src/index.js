@@ -2,10 +2,10 @@ import dva from 'dva';
 import './index.less';
 import './polyfill';
 import createLoading from 'dva-loading'
-import { createHistory, createBrowserHistory } from 'history';
+import { createHistory, browserHistory } from 'history';
 // 1. Initialize
 const app = dva({
-    history: process.env.NODE_ENV == "development" ? createHistory() : createBrowserHistory()
+    history: process.env.NODE_ENV == "development" ? createHistory : browserHistory
 });
 
 // 2. Plugins

@@ -1,38 +1,65 @@
-import  { Component } from 'react'
+import { Component } from 'react'
 import Img from '../../components/Img'
+import Loading from '../../components/Loading'
+import Debounce from 'lodash-decorators/debounce'
 import { connect } from 'dva'
 import styles from './index.less'
-@connect(({ course, user }) => ({
+@connect(({ course, user, loading, global }) => ({
+    courseDetail: course.courseDetail,
     courseInfo: course.courseInfo,
-    createOrder: course.createOrder,
-
+    userCourse: user.userCourse,
+    userInfo: global.user,
+    loading: loading.effects["course/queryCourse"]
 }))
 export default class ConfirmOrder extends Component {
     constructor(props) {
         super(props);
-        // console.log(props)
-        // if (!props.createOrder) {
-        //     props.dispatch(routerRedux.replace('/wechat/course'))
-        // }
+        const id = props.match.params.id;
+        this.fetchCourse(id);
+        this.onPay = this.onPay.bind(this)
+    }
+    fetchCourse(id) {
+        const { dispatch } = this.props;
+        dispatch({ type: "course/queryCourse", id });
+    }
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.id != this.props.match.params.id) {
+            const id = this.props.match.params.id
+            this.fetchCourse(id)
+        }
     }
     state = {
-        text: null
+        text: ''
     }
     onChange = (e) => {
         this.setState({
             text: e.target.value
         })
     }
-    onPay = () => {
-        // const { }
+
+    @Debounce(300)
+    onPay() {
+        console.log(this.props)
+        const { courseInfo, userInfo, dispatch } = this.props;
+        // const { text } = this.state;
+        console.log(courseInfo)
+        dispatch({
+            type: 'user/userPay', params: {
+                price: parseInt(courseInfo.price * 100),
+                openid: userInfo.openid,
+                courseid: courseInfo.id,
+                out_trade_ext: courseInfo.coursename
+            }
+        })
     }
     render() {
-        const { courseInfo } = this.props;
+        const { courseInfo, loading } = this.props;
         const { text } = this.state;
         return (
             <div className={styles.orderContainer} >
+                <Loading loading={loading} />
                 <div className={styles.orderCourse} >
-                    <Img className={styles.image} src={'//img11.360buyimg.com/n1/jfs/t15682/129/2364665353/83615/70dc5e39/5aa776d1N6be03e95.jpg'} />
+                    <Img className={styles.image} src={courseInfo.thumb} />
                     <div className={styles.courseInfo} >
                         <div className={styles.title} >{courseInfo.coursename}</div>
                         <div className={styles.price} >{courseInfo.price} 元</div>
@@ -43,7 +70,7 @@ export default class ConfirmOrder extends Component {
                     <input value={text} onChange={this.onChange} type="text" className={styles.input} />
                 </div>
                 <div className={styles.footer}  >
-                    <div className={styles.button} >立即支付</div>
+                    <div className={styles.button} onClick={this.onPay} >立即支付</div>
                 </div>
             </div>
         )

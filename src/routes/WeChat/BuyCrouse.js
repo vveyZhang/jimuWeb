@@ -1,4 +1,4 @@
-import  { Component } from 'react'
+import { Component } from 'react'
 import { connect } from 'dva'
 import { routerRedux } from 'dva/router'
 import { Modal } from 'antd'
@@ -8,7 +8,6 @@ import styles from './index.less'
 @connect(({ course, user, loading }) => ({
     courseDetail: course.courseDetail,
     courseInfo: course.courseInfo,
-    userInfo: user.userInfo,
     userCourse: user.userCourse,
     loading: loading.effects["course/queryCourse"]
 }))
@@ -20,10 +19,8 @@ export default class BuyCrouse extends Component {
         this.fetchCourse(id);
     }
     fetchCourse(id) {
-        const { dispatch, userInfo } = this.props;
+        const { dispatch } = this.props;
         dispatch({ type: "course/queryCourse", id });
-        if (!userInfo || !userInfo.unionid) return dispatch(routerRedux.replace('/wechat/course'))
-        dispatch({ type: "course/getUserCourse", id: userInfo.unionid });
     }
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.id != this.props.match.params.id) {
@@ -43,8 +40,7 @@ export default class BuyCrouse extends Component {
             content: "您已购买该课程",
             onOk() { },
         });
-        dispatch({ type: "course/save", payload: { createOrder: true } });
-        dispatch(routerRedux.push('/wechat/order'))
+        dispatch(routerRedux.push(`/wechat/order/${userCourse.id}`))
     }
     render() {
         const { courseInfo, loading, userCourse } = this.props;
@@ -56,13 +52,16 @@ export default class BuyCrouse extends Component {
         return (
             <div className={styles.buyCourse} >
                 <Loading loading={loading} />
-                <Img className={styles.courseImage} src={"//img11.360buyimg.com/n1/jfs/t15682/129/2364665353/83615/70dc5e39/5aa776d1N6be03e95.jpg"} />
+                <Img className={styles.courseImage} src={courseInfo.thumb} />
                 <div className={styles.courseInfo} >
                     <h1 className={styles.courseName} >{courseInfo.coursename}</h1>
                     <div className={styles.courseDetail} >{courseInfo.description}</div>
                     <div className={styles.courseCount} >
                         <span>{courseInfo.price}</span>元<b></b><span>{courseInfo.project_template}</span>课时<b></b><span>{courseInfo.learn_people}</span>人学习
                     </div>
+                </div>
+                <div>
+                    <img src='https://jimu-course.oss-cn-beijing.aliyuncs.com/import/jimuindex.jpg' className={styles.details} ></img>
                 </div>
                 <div className={styles.footer}  >
                     <div onClick={this.toCreate} className={styles.button} >{buy ? '已购买' : "立即购买"}</div>

@@ -18,7 +18,14 @@ export default {
       history.listen((his) => {
         const urlStr = his.search.split('?')[1];
         const params = qs.parse(urlStr)
-        if (!params.code || !params.state) return;
+        if (!params.code || !params.state) {
+          let userInfo = localStorage.getItem('user');
+          if (!userInfo) {
+            window.location = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx25631b805a2faeb5&redirect_uri=' +
+              'http://www.jimubiancheng.com' + his.pathname + his.search +
+              '&response_type=code&scope=snsapi_userinfo&state=123456789012#wechat_redirect';
+          }
+        };
         try {
           let userInfo = localStorage.getItem('user');
           let userIno = JSON.parse(userInfo)

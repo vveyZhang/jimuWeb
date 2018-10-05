@@ -18,3 +18,6 @@ export function getUserProject(id) {
 export function updateUserInfo(params) {
   return request(`/api/updateUserInfo`, params, { method: 'POST' })
 }
+export function userPay(params){
+  return request(`/api/pay`, params, { method: 'POST' })
+}

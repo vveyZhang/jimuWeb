@@ -1,5 +1,6 @@
-import { getUserInfo, getUserId, getUserCourse, getUserProject, updateUserInfo } from '../services/user'
+import { userPay, getUserCourse, getUserProject, updateUserInfo } from '../services/user'
 import { message } from 'antd'
+import { WXPayment } from '../utils/pay'
 export default {
     namespace: 'user',
     state: {
@@ -7,6 +8,12 @@ export default {
         userProject: []
     },
     effects: {
+        *userPay({ params }, { call, put }) {
+            const { data } = yield call(userPay, params);
+            if (data) {
+                yield call(WXPayment, data)
+            }
+        },
         *getUserCourse({ id }, { call, put }) {
             const userRes = yield call(getUserCourse, id);
             if (!userRes || !userRes.status) return;

@@ -14,14 +14,10 @@ export default class WCrouseList extends Component {
   constructor(props) {
     super(props)
     const { dispatch } = props;
-    dispatch({ type: 'course/queryALLCourse' })
-    const searchParams = window.location.href.split('?')[1]
-    const params = qs.parse(searchParams);
-    dispatch({ type: 'user/getUserInfo', id: params.openid })
+    dispatch({ type: 'course/queryALLCourse' });
   }
   render() {
     const { list, loading } = this.props;
-    console.log(list)
     return (
       <div>
         <Img src={banner} className={styles.banner} />

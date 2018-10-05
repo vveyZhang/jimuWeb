@@ -88,6 +88,12 @@ export const getRouterData = app => {
       ),
       exact: true
     },
+    "/find/editor/:id": {
+      component: dynamicWrapper(app, ['project'], () =>
+        import("../routes/Find/WorkEditor")
+      ),
+      exact: true
+    },
     "/mine": {
       component: dynamicWrapper(app, [], () => import("../routes/Mine/Mine")),
       exact: false
@@ -108,6 +114,7 @@ export const getRouterData = app => {
       component: dynamicWrapper(app, ['course'], () =>
         import("../layouts/WeChat")
       ),
+      exact: true
     },
     "/wechat/course": {
       component: dynamicWrapper(app, ['course', 'user'], () =>
@@ -120,7 +127,7 @@ export const getRouterData = app => {
         import("../routes/WeChat/BuyCrouse")
       ),
       exact: true
-    }, "/wechat/order": {
+    }, "/wechat/order/:id": {
       component: dynamicWrapper(app, ['course'], () =>
         import("../routes/WeChat/ConfirmOrder")
       ),
