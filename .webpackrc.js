@@ -1,6 +1,5 @@
 const path = require("path");
 const pageCount = 8;
-console.log(process.env.NODE_ENV)
 export default {
   entry: {
     app: path.resolve(__dirname, "src/index.js"),
