@@ -1,5 +1,6 @@
 const path = require("path");
-const pageCount=10
+const pageCount = 8;
+console.log(process.env.NODE_ENV)
 export default {
   entry: {
     app: path.resolve(__dirname, "src/index.js"),
@@ -28,12 +29,15 @@ export default {
     template: "./src/index.ejs",
     hash: true
   },
-  extraBabelIncludes:[
+  extraBabelIncludes: [
     "node_modules/scratch-vm",
     "node_modules/scratch-translate-extension-languages",
     "node_modules/scratch-parser"
   ],
-  disableDynamicImport: true,
+  disableDynamicImport: process.env.NODE_ENV != "production",
+  define: {
+    'process.env.NODE_ENV': process.env.NODE_ENV,
+  },
   commons: [
     {
       async: "__common",
