@@ -33,7 +33,7 @@ export default {
     "node_modules/scratch-translate-extension-languages",
     "node_modules/scratch-parser"
   ],
-  disableDynamicImport: process.env.NODE_ENV != "production",
+  disableDynamicImport: true,
   define: {
     'process.env.NODE_ENV': process.env.NODE_ENV,
   },
