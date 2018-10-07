@@ -5,6 +5,7 @@ import Header from "./header";
 import Footer from "./footer";
 import { Switch, Route, Redirect } from "dva/router";
 import PropTypes from "prop-types";
+import Exception from '../routes/Exception'
 import { getRoutes } from "../utils/index";
 import styles from './index.less'
 import { connect } from 'dva'
@@ -82,6 +83,7 @@ class Layouts extends Component {
                 />
               ))}
               <Redirect exact from="/" to="/home" />
+              <Route component={Exception} />
             </Switch>
           </div>
           <Footer />

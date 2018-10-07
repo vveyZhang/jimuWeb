@@ -2,6 +2,7 @@ import  { Component } from 'react'
 import DocumentTitle from 'react-document-title'
 import { Switch, Route, Redirect } from "dva/router";
 import { getRoutes } from "../utils/index";
+import Exception from '../routes/Exception'
 import pathToRegexp from "path-to-regexp";
 export default class WeChat extends Component {
     getPage() {
@@ -38,6 +39,7 @@ export default class WeChat extends Component {
                             />
                         ))}
                         <Redirect exact from="/wechat/" to="/wechat/course" />
+                        <Route component={Exception} />
                     </Switch>
                 </div>
             </DocumentTitle>

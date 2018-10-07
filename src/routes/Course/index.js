@@ -2,6 +2,7 @@ import  { Component } from "react";
 import { Switch, Route } from "dva/router";
 import { getRoutes } from "../../utils/index";
 import CourseList from "./CourseList";
+import Exception from '../Exception'
 class Course extends Component {
   render() {
     const { match, routerData } = this.props;
@@ -16,6 +17,7 @@ class Course extends Component {
           />
         ))}
         <Route exact path={match.path} render={(props) => <CourseList {...props} />} />
+        <Route component={Exception} />
       </Switch>
     );
   }

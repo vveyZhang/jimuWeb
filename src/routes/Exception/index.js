@@ -1,4 +1,4 @@
-import  { Component } from 'react'
+import { Component } from 'react'
 import styles from './index.less';
 import { Link } from 'dva/router'
 export default class Exception extends Component {
