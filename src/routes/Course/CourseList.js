@@ -22,7 +22,7 @@ class CourseList extends Component {
     return (
       <div className={styles.course} >
         <div className="container">
-          <Bar tab={["最新", "最热"]} name="课程" />
+          <Bar tab={["最新"]} name="课程" />
           <div className={styles.courseList}>
             <Loading loading={loading} />
             {list.map((item, index) => <CourseItem {...item} key={index} />)}

@@ -19,7 +19,7 @@ class FindList extends Component {
     return (
       <div className={styles.find}>
         <div className="container">
-          <Bar tab={["最新", "最热"]} name="作品" />
+          <Bar tab={["最新"]} name="作品" />
           <div className={styles.findList}>
             <Loading loading={loading} />
             {

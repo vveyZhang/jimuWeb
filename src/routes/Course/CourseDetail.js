@@ -79,7 +79,7 @@ class CourseDetail extends Component {
               <div className={styles.button}>开始学习 </div>
             </div>
           </div>
-          <InnerBar title="课程章节" id={courseInfo.project_template} />
+          <InnerBar title="课程章节" id={courseInfo.task_content} />
           <div className={styles.courseContent}>
             <div className={styles.left}>
               <div className={styles.introduce}>
@@ -117,7 +117,7 @@ class CourseDetail extends Component {
               </div>
               <div className={styles.reportText}>
                 <p>
-                  发布相关章节作业，并分享到朋友圈签到成功，完成本课时签到，将获得xxx小礼品！！
+                  发布相关章节作业，并分享到朋友圈签到成功，完成本课时签到，将获得小礼品！！
                 </p>
                 <p className={styles.min}>
                   （礼品发放方式：完善个人信息中...地址信息，我们将邮寄到该地址）
@@ -125,10 +125,6 @@ class CourseDetail extends Component {
                 <div className={classNames(styles.button, styles.dispaly)}>
                   立即领取
                 </div>
-              </div>
-              <div className={styles.weCode}>
-                <img alt="" className={styles.code} />
-                <p>欢迎加入家长群进行交流</p>
               </div>
             </div>
           </div>
