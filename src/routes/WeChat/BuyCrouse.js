@@ -15,7 +15,6 @@ export default class BuyCrouse extends Component {
     constructor(props) {
         super(props)
         const id = props.match.params.id;
-        this.state = { id }
         this.fetchCourse(id);
     }
     fetchCourse(id) {
@@ -29,9 +28,9 @@ export default class BuyCrouse extends Component {
         }
     }
     toCreate = () => {
-        const { dispatch, userCourse } = this.props;
+        const { dispatch, userCourse ,courseInfo} = this.props;
         let buy = false;
-        const { id } = this.state;
+        const { id } = courseInfo;
         for (let item of userCourse) {
             if (item.id == id) buy = true
         }
@@ -40,12 +39,12 @@ export default class BuyCrouse extends Component {
             content: "您已购买该课程",
             onOk() { },
         });
-        dispatch(routerRedux.push(`/wechat/order/${userCourse.id}`))
+        dispatch(routerRedux.push(`/wechat/order/${courseInfo.id}`))
     }
     render() {
         const { courseInfo, loading, userCourse } = this.props;
         let buy = false;
-        const { id } = this.state;
+        const id= courseInfo.id
         for (let item of userCourse) {
             if (item.id == id) buy = true
         }
