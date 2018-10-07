@@ -15,6 +15,7 @@ export default class BuyCrouse extends Component {
     constructor(props) {
         super(props)
         const id = props.match.params.id;
+        this.state = { id }
         this.fetchCourse(id);
     }
     fetchCourse(id) {
