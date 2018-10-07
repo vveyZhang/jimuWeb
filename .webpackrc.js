@@ -69,16 +69,6 @@ export default {
       from: path.resolve(__dirname, "scratch"),
       to: 'scratch/[name].js',
       toType: 'template'
-    },
-    {
-      from: path.resolve(__dirname, "wechat/MP_verify_1iPwypGtml619eLS.txt"),
-      to: 'MP_verify_1iPwypGtml619eLS.txt',
-      toType: 'dir'
-    },
-    {
-      from: path.resolve(__dirname, "wechat/MP_verify_1iPwypGtml619eLS.txt"),
-      to: 'wechat/MP_verify_1iPwypGtml619eLS.txt',
-      toType: 'dir'
     }
   ]
 };
