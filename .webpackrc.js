@@ -11,6 +11,7 @@ export default {
       "lodash-decorators"
     ]
   },
+  publicPath:"/",
   env: {
     development: {
       extraBabelPlugins: ['dva-hmr']

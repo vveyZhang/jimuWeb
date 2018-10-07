@@ -60,7 +60,7 @@ export const getRouterData = app => {
     },
     "/home": {
       component: dynamicWrapper(app, [], () => import("../routes/Home")),
-      exact: true
+      exact: false
     },
     "/course": {
       component: dynamicWrapper(app, ['course'], () => import("../routes/Course")),
@@ -70,13 +70,13 @@ export const getRouterData = app => {
       component: dynamicWrapper(app, ['course'], () =>
         import("../routes/Course/CourseDetail")
       ),
-      exact: true
+      exact: false
     },
     "/course/video/:id": {
       component: dynamicWrapper(app, ['course'], () =>
         import("../routes/Course/CourseVideo")
       ),
-      exact: true
+      exact: false
     },
     "/find": {
       component: dynamicWrapper(app, ['project'], () => import("../routes/Find")),
@@ -86,13 +86,13 @@ export const getRouterData = app => {
       component: dynamicWrapper(app, ['project', 'comments'], () =>
         import("../routes/Find/WorkDetail")
       ),
-      exact: true
+      exact: false
     },
     "/find/editor/:id": {
       component: dynamicWrapper(app, ['project'], () =>
         import("../routes/Find/WorkEditor")
       ),
-      exact: true
+      exact: false
     },
     "/mine": {
       component: dynamicWrapper(app, [], () => import("../routes/Mine/Mine")),
@@ -100,44 +100,44 @@ export const getRouterData = app => {
     },
     "/mine/course": {
       component: dynamicWrapper(app, ['user'], () => import("../routes/Mine/MineCourse")),
-      exact: true
+      exact: false
     },
     "/mine/project": {
       component: dynamicWrapper(app, ['user'], () => import("../routes/Mine/MineProject")),
-      exact: true
+      exact: false
     },
     "/mine/setting": {
       component: dynamicWrapper(app, ['user'], () => import("../routes/Mine/MineSetting")),
-      exact: true
+      exact: false
     },
     "/wechat": {
       component: dynamicWrapper(app, ['course'], () =>
         import("../layouts/WeChat")
       ),
-      exact: true
+      exact: false
     },
     "/wechat/course": {
       component: dynamicWrapper(app, ['course', 'user'], () =>
         import("../routes/WeChat/WCrouseList")
       ),
-      exact: true
+      exact: false
     },
     "/wechat/buy/:id": {
       component: dynamicWrapper(app, ['course'], () =>
         import("../routes/WeChat/BuyCrouse")
       ),
-      exact: true
+      exact: false
     }, "/wechat/order/:id": {
       component: dynamicWrapper(app, ['course'], () =>
         import("../routes/WeChat/ConfirmOrder")
       ),
-      exact: true
+      exact: false
     },
     "/exception": {
       component: dynamicWrapper(app, [], () =>
         import("../routes/Exception")
       ),
-      exact: true
+      exact: false
     },
   };
   let routes = {};

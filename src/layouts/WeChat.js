@@ -38,7 +38,7 @@ export default class WeChat extends Component {
                                 exact={item.exact}
                             />
                         ))}
-                        <Redirect exact from="/wechat/" to="/wechat/course" />
+                        <Redirect exact from="/wechat" to="/wechat/course" />
                         <Route component={Exception} />
                     </Switch>
                 </div>
