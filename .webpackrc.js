@@ -11,7 +11,7 @@ export default {
       "lodash-decorators"
     ]
   },
-  publicPath:"/",
+  publicPath: "/",
   env: {
     development: {
       extraBabelPlugins: ['dva-hmr']
@@ -63,5 +63,12 @@ export default {
       target: "http://jimu-course.oss-cn-beijing.aliyuncs.com",
       changeOrigin: true
     }
-  }
+  },
+  "copy": [
+    {
+      from: path.resolve(__dirname, "scratch"),
+      to: 'scratch/[name].js',
+      toType: 'template'
+    }
+  ]
 };
