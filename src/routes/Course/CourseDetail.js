@@ -107,7 +107,7 @@ class CourseDetail extends Component {
 
             </div>
           </div>
-          <InnerBar title="课程章节" id={courseInfo.task_content} />
+          <InnerBar title="课程章节" id={courseInfo.project_template} />
           <div className={styles.courseContent}>
             <div className={styles.left}>
               <div className={styles.introduce}>

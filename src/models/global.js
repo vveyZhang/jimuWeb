@@ -21,7 +21,7 @@ export default {
         if (!params.code || !params.state) {
           let userInfo = localStorage.getItem('user');
           if (!userInfo && his.pathname.indexOf('/wechat') == 0) {
-            window.location = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx25631b805a2faeb5&redirect_uri=' +
+            window.location = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4c4b8ec9ec403f8c&redirect_uri=' +
               'http://www.jimubiancheng.com' + his.pathname + his.search +
               '&response_type=code&scope=snsapi_userinfo&state=123456789012#wechat_redirect';
           }

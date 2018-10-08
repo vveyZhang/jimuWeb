@@ -97,7 +97,7 @@ class Header extends Component {
                     </div> :
                       <div className={styles.userSign}>
                         <div className={styles.userText} onClick={() => {
-                          window.location = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx9c25260b9a9b65f1&redirect_uri=http://www.jimubiancheng.com'
+                          window.location = 'https://open.weixin.qq.com/connect/qrconnect?appid=wx4c4b8ec9ec403f8c&redirect_uri=http://www.jimubiancheng.com'
                             + path + search +
                             '&response_type=code&scope=snsapi_login&state=1234567890#wechat_redirect'
                         }} >登录</div>

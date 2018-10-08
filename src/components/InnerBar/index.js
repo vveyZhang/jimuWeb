@@ -3,8 +3,7 @@ import styles from "./index.less";
 import PropTypes from "prop-types";
 class InnerBar extends Component {
   static propTypes = {
-    title: PropTypes.string,
-    id: PropTypes.string
+    title: PropTypes.string
   };
   render() {
     const { title, id } = this.props;
