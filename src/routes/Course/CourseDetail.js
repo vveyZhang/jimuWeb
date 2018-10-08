@@ -3,11 +3,12 @@ import styles from "./index.less";
 import classNames from "classnames";
 import Breadcrumb from "../../components/Breadcrumb/index";
 import InnerBar from "../../components/InnerBar";
-import { Link } from "dva/router";
-import { connect } from 'dva'
+import { connect } from 'dva';
+import { Modal } from 'antd';
+import { routerRedux } from 'dva/router'
 import icon from "../../assets/play-smal-icon.png";
 import reportedIcon from '../../assets/reported-icon.png';
-
+import QRCode from 'qrcode.react'
 function courseStatus(id, course) {
   let status = false;
   for (let item of course) {
@@ -31,6 +32,9 @@ class CourseDetail extends Component {
     super(props)
     const id = props.match.params.id;
     this.fetchCourse(id);
+    this.state = {
+      visiableBuy: false
+    }
   }
   fetchCourse(id) {
     const { dispatch, user } = this.props;
@@ -44,6 +48,20 @@ class CourseDetail extends Component {
       const id = this.props.match.params.id
       this.fetchCourse(id)
     }
+  }
+  handleBuy = () => {
+    return this.setState({
+      visiableBuy: true
+    })
+
+  }
+  linkVedio = (id) => {
+    const { dispatch, user } = this.props;
+    if (!user.status) return Modal.error({
+      title: '操作失败',
+      content: "未登录"
+    });
+    dispatch(routerRedux.push(`/course/video/${id}`))
   }
   render() {
     const { courseInfo, courseDetail, userCoure } = this.props;
@@ -59,6 +77,14 @@ class CourseDetail extends Component {
     ];
     return (
       <div className={styles.courseDetail}>
+        <Modal visible={this.state.visiableBuy} footer={null} onCancel={()=>this.setState({
+          visiableBuy:false
+        })} >
+          <div className={styles.courseCode} >
+            <QRCode size={200} value={`http://www.jimubiancheng.com/wechat/buy/${courseInfo.id}`} />
+          </div>
+          <div className={styles.courseBuyTips} >请用微信扫码购买</div>
+        </Modal>
         <div className="container">
           <Breadcrumb breadcrumbMap={pathMap} />
           <div className={styles.courseHeader}>
@@ -72,11 +98,13 @@ class CourseDetail extends Component {
               </div>
               <div className={styles.courseBuy}>
                 购买状态：
-                <span className={styles.buy}>已购买</span>
+                <span className={styles.buy}>{userCoure.buy ? '已购买' : "未购买"}</span>
               </div>
             </div>
             <div className={styles.right}>
-              <div className={styles.button}>开始学习 </div>
+              {!userCoure.buy ?
+                <div onClick={this.handleBuy} className={styles.button}>点击购买 </div> : null}
+
             </div>
           </div>
           <InnerBar title="课程章节" id={courseInfo.task_content} />
@@ -88,28 +116,31 @@ class CourseDetail extends Component {
               </div>
               <div className={styles.chapterList}>
                 {
-                  courseDetail.map((item, index) => <Link key={index} to={`/course/video/${item.id}`} className={styles.chapterItem}>
-                    <img src={icon} className={styles.icon} alt="" />
-                    <span className={styles.title}>
-                      {item.course_detail_name} {item.course_desc}
-                    </span>
-                    <span className={styles.time}>（{item.file_time}分钟）</span>
-                  </Link>)
+                  courseDetail.map((item, index) => {
+                    return <div key={index} onClick={() => this.linkVedio(item.id)} className={classNames(styles.chapterItem)}>
+                      <img src={icon} className={styles.icon} alt="" />
+                      <span className={styles.title}>
+                        {item.course_detail_name} {item.course_desc}
+                      </span>
+                      <span className={styles.time}>（{item.file_time}分钟）</span>
+                    </div>
+                  })
                 }
               </div>
             </div>
             <div className={styles.right}>
               <div className={styles.report}>
                 {
-                  courseDetail.map((item, index) => (
-                    <div
+                  courseDetail.map((item, index) => {
+                    return (<div
                       key={index}
-                      className={classNames(styles.reportItem, courseStatus(item.pre_detalid, courseDetail) && styles.reported)}
+                      className={classNames(styles.reportItem, courseStatus(item.id, userCoure.learnStatus) && styles.reported)}
                     >
                       {index + 1} 节
-                      <img className={styles.icon} alt="" src={reportedIcon} />
+                        <img className={styles.icon} alt="" src={reportedIcon} />
                     </div>
-                  ))
+                    )
+                  })
                   //   this.getReport(2).map((item, index) => (
                   //     <div key={index} className={styles.reportItem} />
                   // ))

@@ -23,7 +23,7 @@ class HomeBanner extends Component {
                   <Link to='/mine/project' >我的作品</Link>
                 </div>
                 <div className={styles.scartchBtn}  >
-                  <a href='/scartch'>去创作</a>
+                  <a href='/scratch'>去创作</a>
                 </div>
               </div> : <Login />
             }

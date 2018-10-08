@@ -28,7 +28,7 @@ export default class BuyCrouse extends Component {
         }
     }
     toCreate = () => {
-        const { dispatch, userCourse ,courseInfo} = this.props;
+        const { dispatch, userCourse, courseInfo } = this.props;
         let buy = false;
         const { id } = courseInfo;
         for (let item of userCourse) {
@@ -44,7 +44,7 @@ export default class BuyCrouse extends Component {
     render() {
         const { courseInfo, loading, userCourse } = this.props;
         let buy = false;
-        const id= courseInfo.id
+        const id = courseInfo.id
         for (let item of userCourse) {
             if (item.id == id) buy = true
         }
@@ -63,6 +63,7 @@ export default class BuyCrouse extends Component {
                     <img src='https://jimu-course.oss-cn-beijing.aliyuncs.com/import/jimuindex.jpg' className={styles.details} ></img>
                 </div>
                 <div className={styles.footer}  >
+                    <div className={styles.buyPrice} >应付：<span>{courseInfo.price}</span>元</div>
                     <div onClick={this.toCreate} className={styles.button} >{buy ? '已购买' : "立即购买"}</div>
                 </div>
             </div>

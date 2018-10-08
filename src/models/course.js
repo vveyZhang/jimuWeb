@@ -8,7 +8,11 @@ export default {
         courseVideo: {
             courseid: ''
         },
-        userCoure: [],
+        userCoure:{
+            buy:false,
+            learnStatus:[]
+        } ,
+        
         createOrder: false,
     },
     effects: {

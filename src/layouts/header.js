@@ -64,10 +64,12 @@ class Header extends Component {
             {visiableUnderline ? <span className={styles.underline} style={{ left: left + "px" }} /> : null}
           </div>
           <div className={styles.right}>
-            <div className={styles.inputContaienr}>
-              <input />
-              <img className={styles.searchIcon} alt="" src={searchIcon} />
-            </div>
+            {
+              //   <div className={styles.inputContaienr}>
+              //   <input />
+              //   <img className={styles.searchIcon} alt="" src={searchIcon} />
+              // </div>
+            }
             {
               isHome ? null :
                 <div className={styles.userContainer}>

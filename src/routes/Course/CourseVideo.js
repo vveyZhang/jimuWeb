@@ -1,8 +1,8 @@
-import  { Component } from "react";
+import { Component } from "react";
 import Breadcrumb from "../../components/Breadcrumb/index";
 import InnerBar from "../../components/InnerBar";
 import { DefaultPlayer as Video } from "react-html5video";
-import { Link } from "dva/router";
+import { Link, routerRedux } from "dva/router";
 import { connect } from 'dva'
 import classNames from 'classnames'
 import icon from "../../assets/play-smal-icon.png";
@@ -20,6 +20,8 @@ class CourseVideo extends Component {
     super(props)
     const id = props.match.params.id;
     this.fetchVideo(id);
+    const { user, dispatch } = props;
+    if (!user.status) dispatch(routerRedux.push('/exception'))
   }
   fetchVideo(id) {
     const { dispatch, user } = this.props;
@@ -49,7 +51,7 @@ class CourseVideo extends Component {
     ];
     return (
       <div className={styles.courseVideo}>
-      <GlobalMessage />
+        <GlobalMessage />
         <div className="container">
           <Breadcrumb breadcrumbMap={pathMap} />
           <h1 className={styles.courseTitle}>{courseVideo.belong_course_title}</h1>

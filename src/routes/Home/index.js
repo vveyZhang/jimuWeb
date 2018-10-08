@@ -16,7 +16,7 @@ class Home extends Component {
   render() {
     const { loading, user } = this.props;
     return (
-      <div>
+      <div style={{background:"#fff"}} >
         <Banner loading={loading} user={user} />
         <Process />
         <Study />

@@ -68,6 +68,7 @@ export default class GlobalMessage extends Component {
     const { list, user, content } = this.props;
     return (
       <div className={styles.wrap} >
+        <div className={styles.header} ></div>
         <div className={styles.messageWrap} >
           <div className={styles.messageWrapContianer} ref={ref => this.wrap = ref} >
             <div className={styles.messageList} ref={ref => this.message = ref} >
