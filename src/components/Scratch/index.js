@@ -54,6 +54,7 @@ export default class Scratch extends Component {
     this.runScratch()
   }
   runScratch = () => {
+    
     if (!window.ScratchStorage || !window.ScratchSVGRenderer) {
       setTimeout(() => {
         this.runScratch()

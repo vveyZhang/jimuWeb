@@ -4,6 +4,7 @@ import { routerRedux } from 'dva/router'
 import { Modal } from 'antd'
 import Loading from '../../components/Loading'
 import Img from '../../components/Img'
+import BuyDetail from '../../components/WeChat/BuyDetail'
 import styles from './index.less'
 @connect(({ course, user, loading }) => ({
     courseDetail: course.courseDetail,
@@ -59,9 +60,7 @@ export default class BuyCrouse extends Component {
                         <span>{courseInfo.price}</span>元<b></b><span>{courseInfo.project_template}</span>课时<b></b><span>{courseInfo.learn_people}</span>人学习
                     </div>
                 </div>
-                <div>
-                    <img src='https://jimu-course.oss-cn-beijing.aliyuncs.com/import/jimuindex.jpg' className={styles.details} ></img>
-                </div>
+                <BuyDetail />
                 <div className={styles.footer}  >
                     <div className={styles.buyPrice} >应付：<span>{courseInfo.price}</span>元</div>
                     <div onClick={this.toCreate} className={styles.button} >{buy ? '已购买' : "立即购买"}</div>

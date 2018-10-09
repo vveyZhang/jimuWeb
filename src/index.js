@@ -14,6 +14,7 @@ app.use(createLoading());
 // 3. Model
 app.model(require('./models/global').default);
 
+console.log(require('./router').default)
 // 4. Router
 app.router(require('./router').default);
 

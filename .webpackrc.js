@@ -1,15 +1,16 @@
 const path = require("path");
-const pageCount = 8;
+const pageCount = 4;
 export default {
+  devtool: "source-map",
   entry: {
     app: path.resolve(__dirname, "src/index.js"),
-    vendor: [
-      "react",
-      "classnames",
-      "dva",
-      "prop-types",
-      "lodash-decorators"
-    ]
+    // vendor: [
+    //   "react",
+    //   "classnames",
+    //   "dva",
+    //   "prop-types",
+    //   "lodash-decorators"
+    // ]
   },
   publicPath: "/",
   env: {
@@ -19,9 +20,16 @@ export default {
   },
 
   extraBabelPlugins: [
-    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]
+    ["@babel/plugin-transform-runtime",
+      {
+        "corejs": false,
+        "helpers": false,
+        "regenerator": true,
+        "useESModules": false
+      }],
+    ["import", { "libraryName": "antd", "libraryDirectory": "lib", "style": true }]
   ],
-  browserslist: ["> 1%", "last 2 versions", "not ie <= 8"],
+  // browserslist: ["> 1%", "last 2 versions", "not ie <= 8"],
   alias: {
     components: path.resolve(__dirname, "src/components/")
   },
@@ -70,5 +78,6 @@ export default {
       to: 'scratch/[name].js',
       toType: 'template'
     }
-  ]
+  ],
+  "hash": true
 };

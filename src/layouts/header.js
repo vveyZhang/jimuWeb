@@ -17,10 +17,6 @@ const menu = [
   {
     name: "发现",
     path: "/find"
-  },
-  {
-    name: "创作",
-    path: "/scratch"
   }
 ];
 class Header extends Component {
@@ -61,6 +57,9 @@ class Header extends Component {
           <Img src={LogoIcon} className={styles.logo} />
           <div className={styles.nav}>
             {menuItem}
+            <a className={classNames(
+              styles.navItem
+            )} href="http://www.jimubiancheng.com/scratch"></a>
             {visiableUnderline ? <span className={styles.underline} style={{ left: left + "px" }} /> : null}
           </div>
           <div className={styles.right}>

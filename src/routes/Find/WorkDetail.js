@@ -1,4 +1,4 @@
-import  { Component } from "react";
+import { Component } from "react";
 import Breadcrumb from "../../components/Breadcrumb/index";
 import styles from "./index.less";
 import { Link } from 'dva/router'
@@ -75,7 +75,7 @@ class WorkDetail extends Component {
             </div>
             <div className={styles.workDetailWrap}>
               <div className={styles.projectWrap} >
-                <Scratch imgSrc={project.project_image} url={project.project_file} />
+                {project.project_file ? <Scratch imgSrc={project.project_image} url={project.project_file} /> : null}
               </div>
               <div className={styles.projectInfo}>
                 <div className={styles.projectText} >
@@ -88,9 +88,9 @@ class WorkDetail extends Component {
                 </div>
                 <div className={styles.btnContainer} >
                   {
-                    user.id==project.userid?
-                    <Link to={`/scratch/proid=${project.id}`} className={styles.btn}  >去修改</Link>
-                    :null
+                    user.id == project.userid ?
+                      <a href={`http://www.jimubiancheng.com/scratch/proid=${project.id}`} className={styles.btn}  >去修改</a>
+                      : null
                   }
                 </div>
               </div>

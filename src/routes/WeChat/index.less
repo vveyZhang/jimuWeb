@@ -9,6 +9,13 @@
     position: relative;
 }
 
+.noCourse {
+    >img {
+        display: block;
+        width: 100%;
+    }
+}
+
 .buyCourse {
     padding-bottom: 4rem;
     .courseImage {
@@ -60,31 +67,32 @@
         margin: 2rem 0;
         width: 100%;
     }
-    .footer {
-        height: 3rem;
-        width: 100%;
-        background-color: #ffffff;
-        position: fixed;
-        bottom: 0px;
-        left: 0px;
-        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-        .buyPrice {
-            font-size: 14px;
-            span {
-                color: #ff7373;
-            }
-            line-height: 3rem;
-            margin-left: 1rem;
-            float: left;
+}
+
+.footer {
+    height: 3rem;
+    width: 100%;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    .buyPrice {
+        font-size: 14px;
+        span {
+            color: #ff7373;
         }
-        .button {
-            width: 6.4rem;
-            text-align: center;
-            line-height: 3rem;
-            background: #ff7373;
-            color: #ffffff;
-            float: right;
-        }
+        line-height: 3rem;
+        margin-left: 1rem;
+        float: left;
+    }
+    .button {
+        width: 6.4rem;
+        text-align: center;
+        line-height: 3rem;
+        background: #ff7373;
+        color: #ffffff;
+        float: right;
     }
 }
 
@@ -147,21 +155,24 @@
             font-family: "微软雅黑"
         }
     }
-    .footer {
-        height: 3rem;
-        width: 100%;
-        background-color: #ffffff;
-        position: fixed;
-        bottom: 0px;
-        left: 0px;
-        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-        .button {
-            width: 6.4rem;
-            text-align: center;
-            line-height: 3rem;
-            background: #ff7373;
-            color: #ffffff;
-            float: right;
-        }
+}
+
+.buySuccess {
+    padding: 3rem 1rem;
+    .title {
+        font-size: 1.6rem;
+        line-height: 4rem;
+        text-align: center;
     }
+    .time{
+        text-align: center;
+        font-size: 1.4rem;
+        line-height: 3rem;
+    }
+    .teCode{
+        width: 50%;
+        display: block;
+        margin:1rem auto;
+    }
+
 }

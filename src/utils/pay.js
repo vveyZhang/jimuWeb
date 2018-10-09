@@ -14,6 +14,7 @@ export function WXPayment(config) {
                     break;
                 case 'get_brand_wcpay_request:ok':
                     alert('支付成功！');
+                    window.location = 'http://www.jimubiancheng.com/wechat/success'
                     break;
                 default:
                     alert(JSON.stringify(res));
