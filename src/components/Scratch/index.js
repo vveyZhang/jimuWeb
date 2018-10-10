@@ -43,11 +43,11 @@ export default class Scratch extends Component {
     }
     let script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = `./scratch/vendor.js`;
+    script.src = `/scratch/vendor.js`;
     document.body.appendChild(script);
     let script2 = document.createElement('script');
     script2.type = 'text/javascript';
-    script2.src = `./scratch/scratch-svg-renderer.js`;
+    script2.src = `/scratch/scratch-svg-renderer.js`;
     document.body.appendChild(script2);
   }
   componentDidMount() {
