@@ -57,12 +57,5 @@ export default {
       changeOrigin: true
     }
   },
-  "copy": [
-    {
-      from: path.resolve(__dirname, "scratch"),
-      to: 'scratch/[name].js',
-      toType: 'template'
-    }
-  ],
   "hash": true
 };

@@ -43,18 +43,18 @@ export default class Scratch extends Component {
     }
     let script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = `/scratch/vendor.js`;
+    script.src = `https://jimu-course.oss-cn-beijing.aliyuncs.com/import/scratch-svg-renderer.js`;
     document.body.appendChild(script);
     let script2 = document.createElement('script');
     script2.type = 'text/javascript';
-    script2.src = `/scratch/scratch-svg-renderer.js`;
+    script2.src = `https://jimu-course.oss-cn-beijing.aliyuncs.com/import/vendor.js`;
     document.body.appendChild(script2);
   }
   componentDidMount() {
     this.runScratch()
   }
   runScratch = () => {
-    
+
     if (!window.ScratchStorage || !window.ScratchSVGRenderer) {
       setTimeout(() => {
         this.runScratch()
