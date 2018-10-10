@@ -5,7 +5,6 @@ import dynamic from 'dva/dynamic';
 const { ConnectedRouter } = routerRedux;
 
 dynamic.setDefaultLoadingComponent(() => {
-  console.log(22)
   return <Spin size="large" />;
 });
 function RouterConfig({ history, app }) {

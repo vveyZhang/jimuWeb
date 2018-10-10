@@ -3,7 +3,6 @@ import './index.less';
 import './polyfill';
 import createLoading from 'dva-loading'
 import { createHashHistory, createBrowserHistory} from 'history';
-Object.setPrototypeOf = require('setprototypeof')
 // 1. Initialize
 const app = dva({
     history: process.env.NODE_ENV == "development" ? createHashHistory() : createBrowserHistory() 
