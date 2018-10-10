@@ -1,7 +1,6 @@
 const path = require("path");
 const pageCount = 4;
 export default {
-  devtool: "source-map",
   entry: {
     app: path.resolve(__dirname, "src/index.js"),
   },
@@ -13,7 +12,7 @@ export default {
   },
 
   extraBabelPlugins: [
-    ["import", { "libraryName": "antd", "libraryDirectory": "lib", "style": true }]
+    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]
   ],
   browserslist: ["> 1%", "last 2 versions", "not ie <= 8"],
   alias: {
