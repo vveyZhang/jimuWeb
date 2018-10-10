@@ -59,7 +59,7 @@ class Header extends Component {
             {menuItem}
             <a className={classNames(
               styles.navItem
-            )} href="http://www.jimubiancheng.com/scratch"></a>
+            )} href="http://www.jimubiancheng.com/scratch">创作</a>
             {visiableUnderline ? <span className={styles.underline} style={{ left: left + "px" }} /> : null}
           </div>
           <div className={styles.right}>

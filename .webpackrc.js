@@ -4,13 +4,6 @@ export default {
   devtool: "source-map",
   entry: {
     app: path.resolve(__dirname, "src/index.js"),
-    // vendor: [
-    //   "react",
-    //   "classnames",
-    //   "dva",
-    //   "prop-types",
-    //   "lodash-decorators"
-    // ]
   },
   publicPath: "/",
   env: {
@@ -20,16 +13,9 @@ export default {
   },
 
   extraBabelPlugins: [
-    ["@babel/plugin-transform-runtime",
-      {
-        "corejs": false,
-        "helpers": false,
-        "regenerator": true,
-        "useESModules": false
-      }],
     ["import", { "libraryName": "antd", "libraryDirectory": "lib", "style": true }]
   ],
-  // browserslist: ["> 1%", "last 2 versions", "not ie <= 8"],
+  browserslist: ["> 1%", "last 2 versions", "not ie <= 8"],
   alias: {
     components: path.resolve(__dirname, "src/components/")
   },
@@ -42,7 +28,7 @@ export default {
     "node_modules/scratch-translate-extension-languages",
     "node_modules/scratch-parser"
   ],
-  disableDynamicImport: true,
+  disableDynamicImport: false,
   define: {
     'process.env.NODE_ENV': process.env.NODE_ENV,
   },

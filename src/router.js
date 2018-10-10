@@ -15,8 +15,8 @@ function RouterConfig({ history, app }) {
   return (
     <ConnectedRouter history={history}>
       <Switch>
-        <Route path="/wechat" render={WeChatLayouts.component} />
-        <Route path="/" render={Layouts.component} />
+        <Route path="/wechat" component={WeChatLayouts.component} />
+        <Route path="/" component={Layouts.component} />
       </Switch>
     </ConnectedRouter>
   );
