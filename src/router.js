@@ -2,10 +2,11 @@ import { Route, Switch, routerRedux } from "dva/router";
 import { getRouterData } from "./common/router";
 import { Spin } from 'antd'
 import dynamic from 'dva/dynamic';
+import styles from './index.less'
 const { ConnectedRouter } = routerRedux;
 
 dynamic.setDefaultLoadingComponent(() => {
-  return <Spin size="large" />;
+  return <Spin size="large" className={styles.globalSpin} />;
 });
 function RouterConfig({ history, app }) {
   const routerData = getRouterData(app);

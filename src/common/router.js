@@ -127,7 +127,7 @@ export const getRouterData = app => {
       exact: false
     },
     "/wechat/buy/:id": {
-      component: dynamicWrapper(app, ['course'], () =>
+      component: dynamicWrapper(app, ['course','user'], () =>
         import("../routes/WeChat/BuyCrouse")
       ),
       exact: false
