@@ -92,18 +92,18 @@ class WorkDetail extends Component {
                   <h1 className={styles.title} >作品名称：</h1>
                   <input onChange={(e) => this.handleChange(e.target.value, 'project_title')} value={project_title} className={styles.titleInput} placeholder="输入作品名" />
                 </div>
-                <div className={styles.projectText} >
-                  <h1 className={styles.title} >作品介绍：</h1>
-                  <textarea onChange={(e) => this.handleChange(e.target.value, 'project_desc')} value={project_desc} placeholder='输入作品介绍' className={styles.settingInput}></textarea>
-                </div>
                 <div className={styles.editorSetting} >
                   <h1 className={styles.title} >操作介绍：</h1>
                   <textarea onChange={(e) => this.handleChange(e.target.value, 'project_opera_instruction')} value={project_opera_instruction} placeholder='输入操作介绍' className={styles.settingInput} ></textarea>
                 </div>
+                <div className={styles.projectText} >
+                  <h1 className={styles.title} >作品介绍：</h1>
+                  <textarea onChange={(e) => this.handleChange(e.target.value, 'project_desc')} value={project_desc} placeholder='输入作品介绍' className={styles.settingInput}></textarea>
+                </div>
+
                 <div className={styles.btnContainer} >
                   <p className={styles.btn} onClick={() => this.handlePush()}  >发布</p>
                 </div>
-
               </div>
             </div>
           </div>

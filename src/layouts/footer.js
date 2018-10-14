@@ -1,7 +1,7 @@
 import  { Component } from "react";
 import styles from "./index.less";
 import weChat from "../assets/code.jpeg";
-import weBo from "../assets/weBo-code.jpg";
+import weBo from "../assets/weBo-code.png";
 class Footer extends Component {
   render() {
     return (
@@ -12,8 +12,8 @@ class Footer extends Component {
             <ul className={styles.contactContent}>
               <li>联系我们：‭137 1897 6058‬</li>
               <li>服务 QQ：1434035824</li>
-              <li>邮箱地址：434035824@qq.com</li>
-              <li>总部地址：成都·高新区·天府三街</li>
+              <li>邮箱地址：1434035824@qq.com</li>
+              <li>总部地址：北京市朝阳区管庄路150号A座0307</li>
             </ul>
           </div>
           <div className={styles.right}>

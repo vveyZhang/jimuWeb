@@ -5,7 +5,9 @@ export default {
     state: {
         list: [],
         webSocket: false,
-        content:''
+        content: '',
+        messageCount: 0,
+        visiable: false
     },
     effects: {
         *bindClient({ payload }, { call, put }) {  // eslint-disable-line

@@ -1,8 +1,16 @@
 import Img from "../Img";
+import classnames from 'classnames'
 import styles from "./index.less";
 import { Link } from "dva/router";
+import { Modal } from 'antd';
+function Tips() {
+  Modal.warn({
+    title: "课程还未开始",
+    content: "关注公众号，实时了解课程进度"
+  })
+}
 const Courseitem = (props) => (
-  <div className={styles.courseItem}>
+  <div className={classnames(styles.courseItem)}>
     <div className={styles.courseImage}>
       <Link to={`/course/detail/${props.id}`} ><Img src={props.thumb} /></Link>
     </div>
@@ -22,9 +30,12 @@ const Courseitem = (props) => (
           学习人数：
           <span>{props.learn_people}</span>
         </div>
-        <Link to={`/course/detail/${props.id}`} className={styles.button}>
-          进入课堂
-        </Link>
+        {
+          props.issale ? <Link to={`/course/detail/${props.id}`} className={styles.button}>
+            进入课堂
+        </Link> : <p className={classnames(styles.button, styles.unSale)} onClick={Tips} >未开课</p>
+        }
+
       </div>
     </div>
   </div>

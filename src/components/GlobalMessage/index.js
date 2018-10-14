@@ -1,12 +1,10 @@
-import  { Component } from 'react'
+import { Component } from 'react'
 import classNames from 'classnames'
 import styles from './index.less'
 import { connect } from 'dva'
 @connect(({ global, router, message }) => ({
   user: global.user,
-  list: message.list,
-  content: message.content,
-  webSocket: message.webSocket,
+  ...message,
   router
 }))
 export default class GlobalMessage extends Component {
@@ -41,15 +39,18 @@ export default class GlobalMessage extends Component {
     })
   }
   webSocket = (userid) => {
+
     const ws = new WebSocket("ws://101.201.237.35:8282");
     ws.onopen = () => {
       var temp = `{ "userid":${userid}}`;
       ws.send(temp);//send() 方法来向服务器发送数据
     };
     ws.onmessage = (e) => {
-      if (!this.props.webSocket) {
+      const { webSocket, dispatch, visiable, messageCount } = this.props;
+      if (!e.data) return;
+      if (!webSocket) {
         const data = JSON.parse(e.data);
-        this.props.dispatch({
+        dispatch({
           type: 'message/bindClient', payload: {
             userid,
             client_id: data.client_id
@@ -59,38 +60,75 @@ export default class GlobalMessage extends Component {
         const payload = {
           type: 'jimu',
           content: e.data,
+
         }
-        this.props.dispatch({ type: 'message/saveMessage', payload })
+        dispatch({
+          type: 'message/save', payload: {
+            messageCount: visiable ? 0 : messageCount + 1
+          }
+        })
+        dispatch({ type: 'message/saveMessage', payload })
       }
     }
   }
+  hideMessage = () => {
+    this.props.dispatch({
+      type: 'message/save', payload: {
+        visiable: false
+      }
+    })
+  }
+  showMessage = () => {
+    this.props.dispatch({
+      type: 'message/save', payload: {
+        visiable: true,
+        messageCount: 0
+      }
+    })
+  }
+
   render() {
-    const { list, user, content } = this.props;
+    const { list, user, content, visiable, messageCount } = this.props;
     return (
       <div className={styles.wrap} >
-        <div className={styles.header} ></div>
-        <div className={styles.messageWrap} >
-          <div className={styles.messageWrapContianer} ref={ref => this.wrap = ref} >
-            <div className={styles.messageList} ref={ref => this.message = ref} >
-              {
-                list.map((item, index) => item.type == "user" ? <div key={index} className={classNames(styles.messageItem, styles.messageItemRight)}>
-                  <div className={styles.messageContent} ><div style={{ overflow: 'hidden' }} >{item.content}</div></div>
-                  <div className={styles.userName} >{user.nick}</div>
-                </div> :
-                  <div key={index} className={classNames(styles.messageItem)}>
-                    <div className={styles.userName} ><div style={{ overflow: 'hidden' }} >积木</div></div>
-                    <div className={styles.messageContent} >{item.content}</div>
-                  </div>
-                )
-              }
+        {
+          !visiable ? <div className={classNames(styles.mesTips, messageCount > 0 && styles.news)} onClick={this.showMessage} >
+            {messageCount > 0 ? <p className={styles.mesTipsCount} >{messageCount}</p> : null}
+            <div className={styles.mesTipsTxt} >
+              积木老师<br />
+              点击咨询
+                </div>
+          </div> : null
+        }
+        <div className={classNames(styles.wrapMessageContainer, visiable && styles.wrapMessageVisiables)} >
+          <div className={styles.header} >
+            <p className={styles.headerTe} >积木老师</p>
+            <p className={styles.haderSub} >即时沟通，在线答疑</p>
+            <div className={styles.close} onClick={this.hideMessage} >隐藏窗口</div>
+          </div>
+          <div className={styles.messageWrap} >
+            <div className={styles.messageWrapContianer} ref={ref => this.wrap = ref} >
+              <div className={styles.messageList} ref={ref => this.message = ref} >
+                {
+                  list.map((item, index) => item.type == "user" ? <div key={index} className={classNames(styles.messageItem, styles.messageItemRight)}>
+                    <div className={styles.userName} >{user.nick}</div>
+                    <div className={styles.messageContent} ><div style={{ overflow: 'hidden' }} >{item.content}</div></div>
+                  </div> :
+                    <div key={index} className={classNames(styles.messageItem)}>
+                      <div className={styles.userName} ><div style={{ overflow: 'hidden' }} >积木</div></div>
+                      <div className={styles.messageContent} >{item.content}</div>
+                    </div>
+                  )
+                }
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles.inputWrap}  >
-          <textarea className={styles.input} value={content}
-            onKeyUp={this.handelKeyEvent}
-            onChange={this.handeInput} ></textarea>
-          <div className={styles.btn} onClick={this.handelMessage} >发送</div>
+          <div className={styles.inputWrap}  >
+            <textarea className={styles.input} placeholder='输入内容，与老师在线交流...' value={content}
+              onKeyUp={this.handelKeyEvent}
+              onChange={this.handeInput} ></textarea>
+            <div className={styles.btn} onClick={this.handelMessage} >发送</div>
+          </div>
         </div>
       </div>
     )

@@ -22,7 +22,6 @@ class Img extends Component {
 
     const { src, alt, ...props } = this.props;
     const { srcData } = this.state;
-    console.log(srcData)
     return <img {...props} alt={alt} src={srcData} />;
   }
 }

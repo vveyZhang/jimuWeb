@@ -15,7 +15,7 @@ const WorkItem = (props) => (
         </div>
       </div>
       <div className={styles.footer}>
-        <Img className={styles.image} />
+        <Img className={styles.image} src={props.pic} />
         <p className={styles.name} >{props.username}</p>
         <p className={styles.time} >{props.updated_at}</p>
       </div>

@@ -1,7 +1,6 @@
 import { Component } from "react";
 import Breadcrumb from "../../components/Breadcrumb/index";
 import InnerBar from "../../components/InnerBar";
-import { DefaultPlayer as Video } from "react-html5video";
 import { Link, routerRedux } from "dva/router";
 import { connect } from 'dva'
 import classNames from 'classnames'
@@ -49,6 +48,7 @@ class CourseVideo extends Component {
         name: courseVideo.course_detail_name
       }
     ];
+    console.log(courseVideo)
     return (
       <div className={styles.courseVideo}>
         <GlobalMessage />
@@ -56,20 +56,24 @@ class CourseVideo extends Component {
           <Breadcrumb breadcrumbMap={pathMap} />
           <h1 className={styles.courseTitle}>{courseVideo.belong_course_title}</h1>
           <div className={styles.courseVideoContainer}>
-            <Video
-              loop
-              controls={["PlayPause", "Seek", "Time", "Volume", "Fullscreen"]}
-              poster={courseVideo.belong_course_template_project_image}
-            >
-              <source
-                src={"http://" + courseVideo.file_url}
-                type="video/mp4"
-              />
-            </Video>
+            {
+              courseVideo.file_url ? <video
+                 className={styles.videoContainer}
+                // class="video-js"
+                controls
+                // preload="auto"
+                // poster={}
+                data-setup='{}'>
+                <source src={courseVideo.file_url} type="video/mp4"></source>
+                <p className="vjs-no-js">
+                  您的浏览器不支持视频播放，请下载最新版本
+            <a href="http://videojs.com/html5-video-support/" target="_blank">点击查看</a>
+                </p>
+              </video> : null
+            }
+
           </div>
-          {
-            // <InnerBar title="课程章节" id={courseVideo.project_template}  />
-          }
+          <InnerBar title="课程章节" id={courseVideo.belong_course_template_project_file} />
           <div className={styles.courseListVideo}>
             <div className={styles.introduce}>
               {courseVideo.belong_course_courseinfo}<br />
@@ -77,7 +81,7 @@ class CourseVideo extends Component {
             </div>
             <div className={styles.chapterList}>
               {
-                courseDetail.map((item, index) => <Link key={index} to={`/course/video/${item.id}`}
+                courseDetail.map((item, index) => <a key={index} href={`/course/video/${item.id}`}
 
                   className={classNames(styles.chapterItem, item.id == this.props.match.params.id && styles.now)}>
                   <img src={icon} className={styles.icon} alt="" />
@@ -85,7 +89,7 @@ class CourseVideo extends Component {
                     {item.course_detail_name} {item.course_desc}
                   </span>
                   <span className={styles.time}>（{item.file_time}分钟）</span>
-                </Link>)
+                </a>)
               }
             </div>
           </div>
