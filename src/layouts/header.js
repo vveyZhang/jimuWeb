@@ -101,7 +101,6 @@ class Header extends Component {
                             '&response_type=code&scope=snsapi_login&state=1234567890#wechat_redirect'
                         }} >登录</div>
                       </div>
-
                   }
                 </div>
             }

@@ -82,7 +82,6 @@ class CourseVideo extends Component {
             <div className={styles.chapterList}>
               {
                 courseDetail.map((item, index) => <a key={index} href={`/course/video/${item.id}`}
-
                   className={classNames(styles.chapterItem, item.id == this.props.match.params.id && styles.now)}>
                   <img src={icon} className={styles.icon} alt="" />
                   <span className={styles.title}>
