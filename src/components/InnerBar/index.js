@@ -6,13 +6,16 @@ class InnerBar extends Component {
     title: PropTypes.string
   };
   render() {
-    const { title, id } = this.props;
+    const { title, id, hideBtn } = this.props;
     return (
       <div className={styles.innerBar}>
         <div className={styles.title}>{title}</div>
-        <a className={styles.button} href={`http://www.jimubiancheng.com/scratch?proid=${id}`}>
-          去创作
-        </a>
+        {
+          !hideBtn ? <a className={styles.button} href={`http://www.jimubiancheng.com/scratch?proid=${id}`}>
+            去创作
+        </a> : null
+        }
+
       </div>
     );
   }

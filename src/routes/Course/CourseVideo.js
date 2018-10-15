@@ -73,7 +73,7 @@ class CourseVideo extends Component {
             }
 
           </div>
-          <InnerBar title="课程章节" id={courseVideo.belong_course_template_project_file} />
+          <InnerBar title="课程章节" id={courseVideo.belong_course_template} />
           <div className={styles.courseListVideo}>
             <div className={styles.introduce}>
               {courseVideo.belong_course_courseinfo}<br />
