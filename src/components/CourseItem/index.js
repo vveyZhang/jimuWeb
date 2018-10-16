@@ -24,14 +24,14 @@ const Courseitem = (props) => (
       <div className={styles.footer}>
         <div className={styles.info}>
           <span>{props.price}</span>元<b />
-          <span>{props.project_template}</span>
+          <span>{props.period}</span>
           课时
           <b />
           学习人数：
           <span>{props.learn_people}</span>
         </div>
         {
-          props.issale ? <Link to={`/course/detail/${props.id}`} className={styles.button}>
+          props.issale==1 ? <Link to={`/course/detail/${props.id}`} className={styles.button}>
             进入课堂
         </Link> : <p className={classnames(styles.button, styles.unSale)} onClick={Tips} >未开课</p>
         }

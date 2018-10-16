@@ -12,7 +12,7 @@ class InnerBar extends Component {
         <div className={styles.title}>{title}</div>
         {
           !hideBtn ? <a className={styles.button} href={`http://www.jimubiancheng.com/scratch?proid=${id}`}>
-            去创作
+            做作业
         </a> : null
         }
 
