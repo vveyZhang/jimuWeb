@@ -88,9 +88,11 @@ class Header extends Component {
                           <Link to="/mine/setting" className={styles.item}>
                             账号设置
                       </Link>
-                          <Link to="" className={styles.item}>
-                            退出登录
-                      </Link>
+                          {
+                            //   <Link to="" className={styles.item}>
+                            //       退出登录
+                            // </Link>
+                          }
                         </div>
                       </div>
                     </div> :

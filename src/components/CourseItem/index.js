@@ -31,14 +31,13 @@ const Courseitem = (props) => (
           <span>{props.learn_people}</span>
         </div>
         {
-          props.issale==1 ? <Link to={`/course/detail/${props.id}`} className={styles.button}>
-            进入课堂
-        </Link> : <p className={classnames(styles.button, styles.unSale)} onClick={Tips} >未开课</p>
+          props.id == 1 ? <p className={classnames(styles.button, styles.unSale)} onClick={Tips} >10月22号开课</p> : <p className={classnames(styles.button, styles.unSale)} onClick={Tips} >未开课</p>
         }
-
       </div>
     </div>
   </div>
 );
-
+// <Link to={`/course/detail/${props.id}`} className={styles.button}>
+//             进入课堂
+//         </Link>
 export default Courseitem;
