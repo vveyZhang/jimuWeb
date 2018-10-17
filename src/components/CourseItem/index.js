@@ -12,7 +12,7 @@ function Tips() {
 const Courseitem = (props) => (
   <div className={classnames(styles.courseItem)}>
     <div className={styles.courseImage}>
-      <Link to={`/course/detail/${props.id}`} ><Img src={props.thumb} /></Link>
+      <p onClick={Tips} ><Img src={props.thumb} /></p>
     </div>
     <div className={styles.courseContent}>
       <h1 className={styles.title}>{props.coursename}</h1>
